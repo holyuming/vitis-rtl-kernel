@@ -79,7 +79,7 @@ LDFLAGS += -lrt -lstdc++
 # The below commands generate a XO file from a pre-exsisitng RTL kernel.
 ###########################################################################
 VIVADO := $(XILINX_VIVADO)/bin/vivado
-$(XO)/B2G.xo: ./src/xml/kernel.xml ./scripts/package_kernel.tcl ./scripts/gen_xo.tcl ./src/IP/*.sv ./src/IP/*.v
+$(XO)/B2G.xo: ./scripts/pack_ip.tcl ./scripts/gen_xo.tcl ./src/IP/*.sv ./src/IP/*.v
 	mkdir -p $(XO)
 	$(VIVADO) -mode batch -source scripts/gen_xo.tcl -tclargs $(XO)/B2G.xo B2G $(TARGET) $(DEVICE)
 ###########################################################################
